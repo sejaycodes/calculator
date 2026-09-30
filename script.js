@@ -35,12 +35,20 @@ buttons.forEach(button => {
             return
         }
         if(value === "+" || value === "-" || value === "×" || value === "÷"){
-            if(firstOperand){
-                currentOperator = value
-
-                display.textContent = `${firstOperand} ${currentOperator}`
+           if(firstOperand && currentOperator && nextOperand){
+                const num1 = Number(firstOperand);
+                const num2 = Number(nextOperand);
+                const result = operate(currentOperator, num1, num2);
+                
+                firstOperand = result.toString();
+                nextOperand = "";
             }
-            return
+
+            if(firstOperand){
+                currentOperator = value;
+                display.textContent = `${firstOperand} ${currentOperator}`;
+            }
+            return;
         }
 
         if(!currentOperator) {
