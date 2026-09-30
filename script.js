@@ -1,6 +1,7 @@
 let firstOperand = ""
 let currentOperator = ""
 let nextOperand = ""
+let isCalculated = false
 
 const display = document.querySelector(".display")
 const buttons = document.querySelectorAll(".keypad button")
@@ -31,6 +32,7 @@ buttons.forEach(button => {
                 firstOperand = result.toString();
                 currentOperator = "";
                 nextOperand = "";
+                isCalculated = true
             }
             return
         }
@@ -46,13 +48,19 @@ buttons.forEach(button => {
 
             if(firstOperand){
                 currentOperator = value;
+                isCalculated = false
                 display.textContent = `${firstOperand} ${currentOperator}`;
             }
             return;
         }
 
         if(!currentOperator) {
-            firstOperand += value
+            if(isCalculated){
+                firstOperand = value
+                isCalculated = false
+            }else{
+                firstOperand += value
+            }
             display.textContent = firstOperand
         }else{
             nextOperand += value
