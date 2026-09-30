@@ -1,0 +1,48 @@
+*{
+    outline: 2px solid red;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: 40px;
+}
+
+.display{
+    padding: 40px;
+    width: 300px;
+    max-width: 300px;
+}
+
+.keypad{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+    max-width: 300px;
+    padding: 40px;
+    margin: 40px;
+}
+
+button {
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+.span{
+    grid-column: span 2;
+}
+
+.wide{
+    grid-column: span 4;
+}
